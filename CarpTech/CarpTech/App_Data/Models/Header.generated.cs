@@ -29,7 +29,7 @@ namespace Umbraco.Web.PublishedModels
 
 		/// <summary>Menu</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		global::Umbraco.Core.Models.PublishedContent.IPublishedContent Menu { get; }
+		global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> Menu { get; }
 	}
 
 	/// <summary>Header</summary>
@@ -73,10 +73,10 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
 		[ImplementPropertyType("menu")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Menu => GetMenu(this);
+		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> Menu => GetMenu(this);
 
 		/// <summary>Static getter for Menu</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetMenu(IHeader that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("menu");
+		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> GetMenu(IHeader that) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link>>("menu");
 	}
 }

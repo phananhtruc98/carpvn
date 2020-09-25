@@ -91,6 +91,6 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
 		[ImplementPropertyType("menu")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Menu => global::Umbraco.Web.PublishedModels.Header.GetMenu(this);
+		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> Menu => global::Umbraco.Web.PublishedModels.Header.GetMenu(this);
 	}
 }

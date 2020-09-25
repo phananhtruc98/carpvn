@@ -290,9 +290,13 @@
   <ItemGroup>
     <Compile Include="App_Data\Models\About.generated.cs" />
     <Compile Include="App_Data\Models\Banner.generated.cs" />
+    <Compile Include="App_Data\Models\Candidate.generated.cs" />
+    <Compile Include="App_Data\Models\CandidateList.generated.cs" />
     <Compile Include="App_Data\Models\CompanyInfo.generated.cs" />
     <Compile Include="App_Data\Models\Contact.generated.cs" />
     <Compile Include="App_Data\Models\ContactForm.generated.cs" />
+    <Compile Include="App_Data\Models\ContactItem.generated.cs" />
+    <Compile Include="App_Data\Models\ContactList.generated.cs" />
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\Footer.generated.cs" />
