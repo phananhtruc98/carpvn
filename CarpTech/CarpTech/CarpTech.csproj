@@ -306,6 +306,9 @@
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\Service.generated.cs" />
+    <Compile Include="App_Data\Models\Slider.generated.cs" />
+    <Compile Include="App_Data\Models\SliderItem.generated.cs" />
+    <Compile Include="App_Data\Models\TalkToUs.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -19,85 +19,71 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Home</summary>
-	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel, ICompanyInfo, IFooter, IHeader, ISlider
+	/// <summary>Slider Item</summary>
+	[PublishedModel("sliderItem")]
+	public partial class SliderItem : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		public new const string ModelTypeAlias = "home";
+		public new const string ModelTypeAlias = "sliderItem";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Home, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SliderItem, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Home(IPublishedContent content)
+		public SliderItem(IPublishedElement content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Address
+		/// Button
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		[ImplementPropertyType("address")]
-		public string Address => global::Umbraco.Web.PublishedModels.CompanyInfo.GetAddress(this);
+		[ImplementPropertyType("button")]
+		public string Button => this.Value<string>("button");
 
 		///<summary>
-		/// Email
+		/// Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		[ImplementPropertyType("email")]
-		public string Email => global::Umbraco.Web.PublishedModels.CompanyInfo.GetEmail(this);
+		[ImplementPropertyType("description")]
+		public string Description => this.Value<string>("description");
 
 		///<summary>
-		/// Phone Number
+		/// Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		[ImplementPropertyType("phoneNumber")]
-		public string PhoneNumber => global::Umbraco.Web.PublishedModels.CompanyInfo.GetPhoneNumber(this);
+		[ImplementPropertyType("image")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("image");
 
 		///<summary>
-		/// Social Media
+		/// Link
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		[ImplementPropertyType("socialMedia")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> SocialMedia => global::Umbraco.Web.PublishedModels.CompanyInfo.GetSocialMedia(this);
+		[ImplementPropertyType("link")]
+		public global::Umbraco.Web.Models.Link Link => this.Value<global::Umbraco.Web.Models.Link>("link");
 
 		///<summary>
-		/// Group Menu
+		/// Text Align
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		[ImplementPropertyType("groupMenu")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.GroupLinks> GroupMenu => global::Umbraco.Web.PublishedModels.Footer.GetGroupMenu(this);
+		[ImplementPropertyType("textAlign")]
+		public string TextAlign => this.Value<string>("textAlign");
 
 		///<summary>
-		/// Logo
+		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		[ImplementPropertyType("logo")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Logo => global::Umbraco.Web.PublishedModels.Header.GetLogo(this);
-
-		///<summary>
-		/// Menu
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		[ImplementPropertyType("menu")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> Menu => global::Umbraco.Web.PublishedModels.Header.GetMenu(this);
-
-		///<summary>
-		/// Slider
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.7.0")]
-		[ImplementPropertyType("sliderItems")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.SliderItem> SliderItems => global::Umbraco.Web.PublishedModels.Slider.GetSliderItems(this);
+		[ImplementPropertyType("title")]
+		public string Title => this.Value<string>("title");
 	}
 }
