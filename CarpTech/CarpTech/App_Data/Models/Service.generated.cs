@@ -45,6 +45,13 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Services
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("services")]
+		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.ServiceGroup> Services => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.ServiceGroup>>("services");
+
+		///<summary>
 		/// Banner Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]

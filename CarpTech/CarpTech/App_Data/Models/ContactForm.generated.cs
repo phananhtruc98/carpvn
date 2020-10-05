@@ -23,25 +23,29 @@ namespace Umbraco.Web.PublishedModels
 	/// <summary>Contact Form</summary>
 	public partial interface IContactForm : IPublishedContent
 	{
-		/// <summary>Description</summary>
+		/// <summary>Sub Title Contact Form</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		global::System.Web.IHtmlString Description { get; }
+		string SubTitleContactForm { get; }
+
+		/// <summary>Title Contact Form</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		string TitleContactForm { get; }
 
 		/// <summary>Email</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		string Email { get; }
+		string YourEmail { get; }
 
 		/// <summary>Message</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		string Message { get; }
-
-		/// <summary>Phone</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		string Phone { get; }
+		string YourMessage { get; }
 
 		/// <summary>Name</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		string YourName { get; }
+
+		/// <summary>Phone</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		string YourPhone { get; }
 	}
 
 	/// <summary>Contact Form</summary>
@@ -70,48 +74,48 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Description
+		/// Sub Title Contact Form
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("description")]
-		public global::System.Web.IHtmlString Description => GetDescription(this);
+		[ImplementPropertyType("subTitleContactForm")]
+		public string SubTitleContactForm => GetSubTitleContactForm(this);
 
-		/// <summary>Static getter for Description</summary>
+		/// <summary>Static getter for Sub Title Contact Form</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static global::System.Web.IHtmlString GetDescription(IContactForm that) => that.Value<global::System.Web.IHtmlString>("description");
+		public static string GetSubTitleContactForm(IContactForm that) => that.Value<string>("subTitleContactForm");
+
+		///<summary>
+		/// Title Contact Form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("titleContactForm")]
+		public string TitleContactForm => GetTitleContactForm(this);
+
+		/// <summary>Static getter for Title Contact Form</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static string GetTitleContactForm(IContactForm that) => that.Value<string>("titleContactForm");
 
 		///<summary>
 		/// Email
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("email")]
-		public string Email => GetEmail(this);
+		[ImplementPropertyType("yourEmail")]
+		public string YourEmail => GetYourEmail(this);
 
 		/// <summary>Static getter for Email</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static string GetEmail(IContactForm that) => that.Value<string>("email");
+		public static string GetYourEmail(IContactForm that) => that.Value<string>("yourEmail");
 
 		///<summary>
 		/// Message
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("message")]
-		public string Message => GetMessage(this);
+		[ImplementPropertyType("yourMessage")]
+		public string YourMessage => GetYourMessage(this);
 
 		/// <summary>Static getter for Message</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static string GetMessage(IContactForm that) => that.Value<string>("message");
-
-		///<summary>
-		/// Phone
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("phone")]
-		public string Phone => GetPhone(this);
-
-		/// <summary>Static getter for Phone</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static string GetPhone(IContactForm that) => that.Value<string>("phone");
+		public static string GetYourMessage(IContactForm that) => that.Value<string>("yourMessage");
 
 		///<summary>
 		/// Name
@@ -123,5 +127,16 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Name</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public static string GetYourName(IContactForm that) => that.Value<string>("yourName");
+
+		///<summary>
+		/// Phone
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("yourPhone")]
+		public string YourPhone => GetYourPhone(this);
+
+		/// <summary>Static getter for Phone</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static string GetYourPhone(IContactForm that) => that.Value<string>("yourPhone");
 	}
 }

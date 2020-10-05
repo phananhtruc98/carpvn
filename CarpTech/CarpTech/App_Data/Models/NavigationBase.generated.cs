@@ -19,9 +19,42 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
+	// Mixin Content Type with alias "navigationBase"
+	/// <summary>Navigation Base</summary>
+	public partial interface INavigationBase : IPublishedContent
+	{
+		/// <summary>Keywords</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		global::System.Collections.Generic.IEnumerable<string> Keywords { get; }
+
+		/// <summary>OG Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		global::Umbraco.Core.Models.PublishedContent.IPublishedContent OgImage { get; }
+
+		/// <summary>OG Short Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		global::System.Web.IHtmlString OgShortDescription { get; }
+
+		/// <summary>OG Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		string OgTitle { get; }
+
+		/// <summary>OG Url</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> OgUrl { get; }
+
+		/// <summary>Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		string SeoMetaDescription { get; }
+
+		/// <summary>Hide in Navigation</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		bool UmbracoNavihide { get; }
+	}
+
 	/// <summary>Navigation Base</summary>
 	[PublishedModel("navigationBase")]
-	public partial class NavigationBase : PublishedContentModel
+	public partial class NavigationBase : PublishedContentModel, INavigationBase
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -49,48 +82,76 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("keywords")]
-		public global::System.Collections.Generic.IEnumerable<string> Keywords => this.Value<global::System.Collections.Generic.IEnumerable<string>>("keywords");
+		public global::System.Collections.Generic.IEnumerable<string> Keywords => GetKeywords(this);
+
+		/// <summary>Static getter for Keywords</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static global::System.Collections.Generic.IEnumerable<string> GetKeywords(INavigationBase that) => that.Value<global::System.Collections.Generic.IEnumerable<string>>("keywords");
 
 		///<summary>
 		/// OG Image: og:image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("ogImage")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent OgImage => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("ogImage");
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent OgImage => GetOgImage(this);
+
+		/// <summary>Static getter for OG Image</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetOgImage(INavigationBase that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("ogImage");
 
 		///<summary>
 		/// OG Short Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("ogShortDescription")]
-		public global::System.Web.IHtmlString OgShortDescription => this.Value<global::System.Web.IHtmlString>("ogShortDescription");
+		public global::System.Web.IHtmlString OgShortDescription => GetOgShortDescription(this);
+
+		/// <summary>Static getter for OG Short Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static global::System.Web.IHtmlString GetOgShortDescription(INavigationBase that) => that.Value<global::System.Web.IHtmlString>("ogShortDescription");
 
 		///<summary>
 		/// OG Title: og:title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("ogTitle")]
-		public string OgTitle => this.Value<string>("ogTitle");
+		public string OgTitle => GetOgTitle(this);
+
+		/// <summary>Static getter for OG Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static string GetOgTitle(INavigationBase that) => that.Value<string>("ogTitle");
 
 		///<summary>
 		/// OG Url
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("ogUrl")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> OgUrl => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link>>("ogUrl");
+		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> OgUrl => GetOgUrl(this);
+
+		/// <summary>Static getter for OG Url</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> GetOgUrl(INavigationBase that) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link>>("ogUrl");
 
 		///<summary>
 		/// Description: A brief description of the content on your page. This text is shown below the title in a google search result and also used for Social Sharing Cards. The ideal length is between 130 and 155 characters
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("seoMetaDescription")]
-		public string SeoMetaDescription => this.Value<string>("seoMetaDescription");
+		public string SeoMetaDescription => GetSeoMetaDescription(this);
+
+		/// <summary>Static getter for Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static string GetSeoMetaDescription(INavigationBase that) => that.Value<string>("seoMetaDescription");
 
 		///<summary>
 		/// Hide in Navigation: If you don't want this page to appear in the navigation, check this box
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("umbracoNavihide")]
-		public bool UmbracoNavihide => this.Value<bool>("umbracoNavihide");
+		public bool UmbracoNavihide => GetUmbracoNavihide(this);
+
+		/// <summary>Static getter for Hide in Navigation</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static bool GetUmbracoNavihide(INavigationBase that) => that.Value<bool>("umbracoNavihide");
 	}
 }

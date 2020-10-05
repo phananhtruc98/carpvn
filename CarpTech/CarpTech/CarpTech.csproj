@@ -321,6 +321,9 @@
     <Compile Include="App_Data\Models\NavigationBase.generated.cs" />
     <Compile Include="App_Data\Models\PreviewControl.generated.cs" />
     <Compile Include="App_Data\Models\Service.generated.cs" />
+    <Compile Include="App_Data\Models\ServiceCollection.generated.cs" />
+    <Compile Include="App_Data\Models\ServiceGroup.generated.cs" />
+    <Compile Include="App_Data\Models\ServiceItem.generated.cs" />
     <Compile Include="App_Data\Models\Slider.generated.cs" />
     <Compile Include="App_Data\Models\SliderItem.generated.cs" />
     <Compile Include="App_Data\Models\TalkToUs.generated.cs" />

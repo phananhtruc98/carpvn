@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>Home</summary>
 	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel, ICompanyInfo, IFooter, IHeader, ISlider
+	public partial class Home : PublishedContentModel, ICompanyInfo, IContactForm, IFooter, IHeader, ISlider
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -43,6 +43,27 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Button
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("button")]
+		public string Button => this.Value<string>("button");
+
+		///<summary>
+		/// Description Intro
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("descriptionIntro")]
+		public string DescriptionIntro => this.Value<string>("descriptionIntro");
+
+		///<summary>
+		/// Title Intro
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("titleIntro")]
+		public string TitleIntro => this.Value<string>("titleIntro");
 
 		///<summary>
 		/// Address
@@ -71,6 +92,48 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("socialMedia")]
 		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> SocialMedia => global::Umbraco.Web.PublishedModels.CompanyInfo.GetSocialMedia(this);
+
+		///<summary>
+		/// Sub Title Contact Form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("subTitleContactForm")]
+		public string SubTitleContactForm => global::Umbraco.Web.PublishedModels.ContactForm.GetSubTitleContactForm(this);
+
+		///<summary>
+		/// Title Contact Form
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("titleContactForm")]
+		public string TitleContactForm => global::Umbraco.Web.PublishedModels.ContactForm.GetTitleContactForm(this);
+
+		///<summary>
+		/// Email
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("yourEmail")]
+		public string YourEmail => global::Umbraco.Web.PublishedModels.ContactForm.GetYourEmail(this);
+
+		///<summary>
+		/// Message
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("yourMessage")]
+		public string YourMessage => global::Umbraco.Web.PublishedModels.ContactForm.GetYourMessage(this);
+
+		///<summary>
+		/// Name
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("yourName")]
+		public string YourName => global::Umbraco.Web.PublishedModels.ContactForm.GetYourName(this);
+
+		///<summary>
+		/// Phone
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("yourPhone")]
+		public string YourPhone => global::Umbraco.Web.PublishedModels.ContactForm.GetYourPhone(this);
 
 		///<summary>
 		/// Group Menu
