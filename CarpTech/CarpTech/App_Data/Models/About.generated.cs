@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>About</summary>
 	[PublishedModel("about")]
-	public partial class About : PublishedContentModel, IBanner, IContactSection
+	public partial class About : PublishedContentModel, IBanner, IContactSection, IMissionVision
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -78,5 +78,33 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("title")]
 		public string Title => global::Umbraco.Web.PublishedModels.ContactSection.GetTitle(this);
+
+		///<summary>
+		/// Mission
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("mission")]
+		public string Mission => global::Umbraco.Web.PublishedModels.MissionVision.GetMission(this);
+
+		///<summary>
+		/// Mission Content
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("missionContent")]
+		public string MissionContent => global::Umbraco.Web.PublishedModels.MissionVision.GetMissionContent(this);
+
+		///<summary>
+		/// Vision
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("vision")]
+		public string Vision => global::Umbraco.Web.PublishedModels.MissionVision.GetVision(this);
+
+		///<summary>
+		/// Vision Content
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("visionContent")]
+		public string VisionContent => global::Umbraco.Web.PublishedModels.MissionVision.GetVisionContent(this);
 	}
 }
