@@ -23,21 +23,21 @@ namespace Umbraco.Web.PublishedModels
 	/// <summary>Contact Section</summary>
 	public partial interface IContactSection : IPublishedContent
 	{
-		/// <summary>Description</summary>
+		/// <summary>Description Contact Section</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		string Description { get; }
+		string DescriptionContactSection { get; }
 
-		/// <summary>Image</summary>
+		/// <summary>Image Contact Section</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image { get; }
+		global::Umbraco.Core.Models.PublishedContent.IPublishedContent ImageContactSection { get; }
 
-		/// <summary>Sub Title</summary>
+		/// <summary>Sub Title Contact Section</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		string SubTitleContactSection { get; }
 
-		/// <summary>Title</summary>
+		/// <summary>Title Contact Section</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		string Title { get; }
+		string TitleContactSection { get; }
 	}
 
 	/// <summary>Contact Section</summary>
@@ -66,47 +66,47 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
-		/// Description
+		/// Description Contact Section
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("description")]
-		public string Description => GetDescription(this);
+		[ImplementPropertyType("descriptionContactSection")]
+		public string DescriptionContactSection => GetDescriptionContactSection(this);
 
-		/// <summary>Static getter for Description</summary>
+		/// <summary>Static getter for Description Contact Section</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static string GetDescription(IContactSection that) => that.Value<string>("description");
+		public static string GetDescriptionContactSection(IContactSection that) => that.Value<string>("descriptionContactSection");
 
 		///<summary>
-		/// Image
+		/// Image Contact Section
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("image")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => GetImage(this);
+		[ImplementPropertyType("imageContactSection")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent ImageContactSection => GetImageContactSection(this);
 
-		/// <summary>Static getter for Image</summary>
+		/// <summary>Static getter for Image Contact Section</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetImage(IContactSection that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("image");
+		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetImageContactSection(IContactSection that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("imageContactSection");
 
 		///<summary>
-		/// Sub Title
+		/// Sub Title Contact Section
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("subTitleContactSection")]
 		public string SubTitleContactSection => GetSubTitleContactSection(this);
 
-		/// <summary>Static getter for Sub Title</summary>
+		/// <summary>Static getter for Sub Title Contact Section</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public static string GetSubTitleContactSection(IContactSection that) => that.Value<string>("subTitleContactSection");
 
 		///<summary>
-		/// Title
+		/// Title Contact Section
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("title")]
-		public string Title => GetTitle(this);
+		[ImplementPropertyType("titleContactSection")]
+		public string TitleContactSection => GetTitleContactSection(this);
 
-		/// <summary>Static getter for Title</summary>
+		/// <summary>Static getter for Title Contact Section</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static string GetTitle(IContactSection that) => that.Value<string>("title");
+		public static string GetTitleContactSection(IContactSection that) => that.Value<string>("titleContactSection");
 	}
 }

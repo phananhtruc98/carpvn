@@ -80,32 +80,32 @@ namespace Umbraco.Web.PublishedModels
 		public string BannerTitle => global::Umbraco.Web.PublishedModels.Banner.GetBannerTitle(this);
 
 		///<summary>
-		/// Description
+		/// Description Contact Section
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("description")]
-		public string Description => global::Umbraco.Web.PublishedModels.ContactSection.GetDescription(this);
+		[ImplementPropertyType("descriptionContactSection")]
+		public string DescriptionContactSection => global::Umbraco.Web.PublishedModels.ContactSection.GetDescriptionContactSection(this);
 
 		///<summary>
-		/// Image
+		/// Image Contact Section
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("image")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => global::Umbraco.Web.PublishedModels.ContactSection.GetImage(this);
+		[ImplementPropertyType("imageContactSection")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent ImageContactSection => global::Umbraco.Web.PublishedModels.ContactSection.GetImageContactSection(this);
 
 		///<summary>
-		/// Sub Title
+		/// Sub Title Contact Section
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("subTitleContactSection")]
 		public string SubTitleContactSection => global::Umbraco.Web.PublishedModels.ContactSection.GetSubTitleContactSection(this);
 
 		///<summary>
-		/// Title
+		/// Title Contact Section
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("title")]
-		public string Title => global::Umbraco.Web.PublishedModels.ContactSection.GetTitle(this);
+		[ImplementPropertyType("titleContactSection")]
+		public string TitleContactSection => global::Umbraco.Web.PublishedModels.ContactSection.GetTitleContactSection(this);
 
 		///<summary>
 		/// Mission

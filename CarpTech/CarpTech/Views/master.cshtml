@@ -1,6 +1,8 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
     Layout = null;
+    var home = Umbraco.ContentAtRoot().FirstOrDefault(x => x.ContentType.Alias == Home.ModelTypeAlias) as Home;
+    var menu = home.Menu;
 }
 
 @* the fun starts here *@
@@ -86,26 +88,14 @@
                                     <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
                                         <nav class="collapse">
                                             <ul class="nav nav-pills" id="mainNav">
-                                                <li>
-                                                    <a class="nav-link active" href="index.html">
-                                                        Home
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="nav-link" href="service.html">
-                                                        Service
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="nav-link" href="contact.html">
-                                                        Contact
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a class="nav-link" href="about.html">
-                                                        About
-                                                    </a>
-                                                </li>
+                                                @foreach (var item in menu)
+                                                {
+                                                    <li>
+                                                        <a class="nav-link active" href="@item.Url">
+                                                            @item.Name
+                                                        </a>
+                                                    </li>
+                                                }
                                             </ul>
                                         </nav>
                                     </div>

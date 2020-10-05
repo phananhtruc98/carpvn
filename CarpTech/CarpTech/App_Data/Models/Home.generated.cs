@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>Home</summary>
 	[PublishedModel("home")]
-	public partial class Home : PublishedContentModel, ICompanyInfo, IContactForm, IFooter, IHeader, ISlider
+	public partial class Home : PublishedContentModel, ICompanyInfo, IContactForm, IContactSection, IFooter, IHeader, ISlider
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -64,6 +64,13 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("titleIntro")]
 		public string TitleIntro => this.Value<string>("titleIntro");
+
+		///<summary>
+		/// Url Address
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("urlAddress")]
+		public string UrlAddress => this.Value<string>("urlAddress");
 
 		///<summary>
 		/// Address
@@ -134,6 +141,34 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("yourPhone")]
 		public string YourPhone => global::Umbraco.Web.PublishedModels.ContactForm.GetYourPhone(this);
+
+		///<summary>
+		/// Description Contact Section
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("descriptionContactSection")]
+		public string DescriptionContactSection => global::Umbraco.Web.PublishedModels.ContactSection.GetDescriptionContactSection(this);
+
+		///<summary>
+		/// Image Contact Section
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("imageContactSection")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent ImageContactSection => global::Umbraco.Web.PublishedModels.ContactSection.GetImageContactSection(this);
+
+		///<summary>
+		/// Sub Title Contact Section
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("subTitleContactSection")]
+		public string SubTitleContactSection => global::Umbraco.Web.PublishedModels.ContactSection.GetSubTitleContactSection(this);
+
+		///<summary>
+		/// Title Contact Section
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("titleContactSection")]
+		public string TitleContactSection => global::Umbraco.Web.PublishedModels.ContactSection.GetTitleContactSection(this);
 
 		///<summary>
 		/// Group Menu

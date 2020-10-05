@@ -1,8 +1,13 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Home>
 @using Umbraco.Web.PublishedModels;
+@using System.Text.RegularExpressions
 @{
     Layout = "master.cshtml";
     var slider = Model.SliderItems as IEnumerable<SliderItem>;
+    var basicComponent = Umbraco.ContentAtRoot().FirstOrDefault(x => x.ContentType.Alias == BasicComponents.ModelTypeAlias);
+    var counters = basicComponent.ChildrenOfType(Counters.ModelTypeAlias).FirstOrDefault().Value<IEnumerable<Counter>>(nameof(Counters.CounterContent).ToSafeAlias());
+    var whyChooseUsTitle = basicComponent.ChildrenOfType(WhyChooseUs.ModelTypeAlias).FirstOrDefault().Name;
+    var whyChooseUs = basicComponent.ChildrenOfType(WhyChooseUs.ModelTypeAlias).FirstOrDefault().Value<IEnumerable<PreviewControl>>(nameof(WhyChooseUs.WhyChooseUsContent).ToSafeAlias());
 }
 <div class="slider-container rev_slider_wrapper" style="height: 800px;">
     <div id="revolutionSlider" class="slider rev_slider manual" data-version="5.4.8">
@@ -50,12 +55,12 @@
         <div class="row align-items-center">
             <div class="col-lg-8 mb-3 mb-lg-0">
                 <p class="text-color-light my-1">
-                    We have solution for your IT problems and support your business to grow in digital age.<br>
-                    <span class="text-color-primary d-inline-block pt-0">Learn more about our services</span>
+                   @Model.TitleIntro<br>
+                    <span class="text-color-primary d-inline-block pt-0">@Model.DescriptionIntro</span>
                 </p>
             </div>
             <div class="col-lg-4 text-left text-lg-right">
-                <a href="service.html" class="btn btn-primary custom-btn-style-1 text-uppercase font-weight-semibold">read more</a>
+                <a href="@Model.UrlAddress" class="btn btn-primary custom-btn-style-1 text-uppercase font-weight-semibold">@Model.Button</a>
             </div>
         </div>
     </div>
@@ -127,24 +132,17 @@
 <section class="section section-no-border section-primary custom-section-spacement-1 m-0">
     <div class="container">
         <div class="row justify-content-center counters custom-counters counters-text-light">
-            <div class="col-lg-3 mb-5 mb-lg-0">
-                <div class="counter text-center">
-                    <span data-to="5">0</span>
-                    <span class="custom-text-color-2">Years in Business</span>
+            @foreach (Counter counter in counters)
+            {
+                var dataAppend = counter.Number.Contains("+") ? "+" : "";
+                var number = Regex.Split(counter.Number, @"\D+").FirstOrDefault();
+                <div class="col-lg-3 mb-5 mb-lg-0">
+                    <div class="counter text-center">
+                        <span data-to="@number" data-append="@dataAppend">0</span>
+                        <span class="custom-text-color-2">@counter.Text</span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-3 mb-5 mb-lg-0">
-                <div class="counter text-center">
-                    <span data-to="20" data-append="+">0</span>
-                    <span class="custom-text-color-2">Clients and Partners</span>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="counter text-center">
-                    <span data-to="15">0</span>
-                    <span class="custom-text-color-2">Delivered project</span>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </section>
@@ -153,26 +151,19 @@
     <div class="container">
         <div class="row text-center">
             <div class="col">
-                <h2 class="text-uppercase text-color-dark font-weight-bold">Why choose us?</h2>
+                <h2 class="text-uppercase text-color-dark font-weight-bold">@whyChooseUsTitle</h2>
                 <h2><br></h2>
             </div>
         </div>
         <div class="row text-center">
-            <div class="col-md-4 mb-4 mb-md-0">
-                <img src="img/why-choose-us-icon-people.png" class="img-fluid custom-center-img-fluid mb-3" alt />
-                <h4 class="text-uppercase font-weight-bold mb-4">People</h4>
-                <p class="custom-text-color-1 mb-0">Our people is strong with Mirosoft technology that can help customer to deploy solution quickly and get benefit soon.</p>
-            </div>
-            <div class="col-md-4 mb-4 mb-md-0">
-                <img src="img/why-choose-us-icon-process.png" class="img-fluid custom-center-img-fluid mb-3" alt />
-                <h4 class="text-uppercase font-weight-bold mb-4">Process</h4>
-                <p class="custom-text-color-1 mb-0">Our process is simple and result oriented. We can flexible apply customer’s process to meet customer audit requirements.</p>
-            </div>
-            <div class="col-md-4">
-                <img src="img/why-choose-us-icon-value.png" class="img-fluid custom-center-img-fluid mb-3" alt />
-                <h4 class="text-uppercase font-weight-bold mb-4">Value</h4>
-                <p class="custom-text-color-1 mb-0">We do not provide cheapest solution to customer but rather showing the best value over cost so customer can get the most</p>
-            </div>
+            @foreach (PreviewControl previewControl in whyChooseUs)
+            {
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <img src="@previewControl.Image.MediaUrl()" class="img-fluid custom-center-img-fluid mb-3" alt />
+                    <h4 class="text-uppercase font-weight-bold mb-4">@previewControl.Title</h4>
+                    <p class="custom-text-color-1 mb-0">@previewControl.ShortDescription</p>
+                </div>
+            }
         </div>
     </div>
 </section>
@@ -183,8 +174,8 @@
             <section class="section section-no-border custom-section-spacement-1 bg-color-primary h-100 m-0">
                 <div class="row justify-content-end m-0">
                     <div class="col-half-section col-half-section-right">
-                        <h2 class="text-uppercase text-color-light font-weight-bold">We call you back</h2>
-                        <p class="text-4 custom-text-color-2 mb-3">Request a Call</p>
+                        <h2 class="text-uppercase text-color-light font-weight-bold">@Model.TitleContactForm</h2>
+                        <p class="text-4 custom-text-color-2 mb-3">@Model.SubTitleContactForm</p>
                         <!-- nhân sửa lại đoạn này để có thể lưu dữ liệu được -->
                         <form id="callSendMessage" class="contact-form custom-form-style" action="php/contact-form.php" method="POST">
                             <div class="contact-form-success alert alert-success d-none mt-4" id="contactFormSuccess">
@@ -200,19 +191,19 @@
                             <div class="form-content">
                                 <div class="form-control-custom custom-sm-margin-bottom-2">
                                     <i class="icon-user icons"></i>
-                                    <input type="text" class="form-control" name="name" placeholder="Your Name *" data-msg-required="This field is required." id="name" required="" />
+                                    <input type="text" class="form-control" name="name" placeholder="@Model.YourName" data-msg-required="This field is required." id="name" required="" />
                                 </div>
                                 <div class="form-control-custom custom-sm-margin-bottom-2">
                                     <i class="icon-screen-smartphone icons"></i>
-                                    <input type="text" class="form-control" name="phone" placeholder="Your Phone *" data-msg-required="This field is required." id="phone" required="" />
+                                    <input type="text" class="form-control" name="phone" placeholder="@Model.YourPhone" data-msg-required="This field is required." id="phone" required="" />
                                 </div>
                                 <div class="form-control-custom custom-sm-margin-bottom-2">
                                     <i class="icon-envelope icons"></i>
-                                    <input type="text" class="form-control" name="email" placeholder="Your Email *" data-msg-required="This field is required." id="email" required="" />
+                                    <input type="text" class="form-control" name="email" placeholder="@Model.YourEmail" data-msg-required="This field is required." id="email" required="" />
                                 </div>
                                 <div class="form-control-custom custom-sm-margin-bottom-2">
                                     <i class="icon-bubbles icons"></i>
-                                    <input type="text" class="form-control" name="discuss" placeholder="I would like to discuss *" data-msg-required="This field is required." id="discuss" required="" />
+                                    <input type="text" class="form-control" name="discuss" placeholder="@Model.YourMessage" data-msg-required="This field is required." id="discuss" required="" />
                                 </div>
                                 <!-- Sửa type input lại bằng submit sau khi sửa code-->
                                 <input type="button" class="btn custom-btn-style-1 custom-btn-padding-1 custom-btn-bg-color-1 text-color-light text-uppercase font-weight-semibold outline-none mt-4" value="Submit" />
@@ -226,22 +217,22 @@
             <section class="section section-no-border custom-section-spacement-1 bg-color-secondary overflow-hidden custom-background-image-1 h-100 m-0">
                 <div class="row m-0">
                     <div class="col-half-section col-half-section-left">
-                        <h2 class="text-uppercase text-color-light font-weight-bold">Let's Talk Business</h2>
-                        <p class="text-4 custom-text-color-2 mb-4">Talk to a Consultant</p>
-                        <p class="custom-text-color-2 custom-padding-right-1 mb-4">We want to listen to your business issue and ready to work for a solution that meets your requirement.</p>
-                        <a href="tel:02822508707" class="text-decoration-none">
+                        <h2 class="text-uppercase text-color-light font-weight-bold">@Model.TitleContactSection</h2>
+                        <p class="text-4 custom-text-color-2 mb-4">@Model.SubTitleContactSection</p>
+                        <p class="custom-text-color-2 custom-padding-right-1 mb-4">@Model.DescriptionContactSection</p>
+                        <a href="tel:@Model.PhoneNumber" class="text-decoration-none">
                             <span class="feature-box custom-feature-box custom-opacity-effect-1 mb-3">
                                 <span class="feature-box-info">
                                     <label class="font-weight-semibold text-uppercase text-color-light pb-1">Call us Now</label>
-                                    <strong class="font-weight-normal custom-text-color-2">028 2250 8707</strong>
+                                    <strong class="font-weight-normal custom-text-color-2">@Model.PhoneNumber</strong>
                                 </span>
                             </span>
                         </a>
-                        <a href="mailto:hello@carp.vn" class="text-decoration-none">
+                        <a href="mailto:@Model.Email" class="text-decoration-none">
                             <span class="feature-box custom-feature-box custom-opacity-effect-1 mb-3">
                                 <span class="feature-box-info">
                                     <label class="font-weight-semibold text-uppercase text-color-light pb-1">Send an Email</label>
-                                    <strong class="font-weight-normal custom-text-color-2">hello@carp.vn</strong>
+                                    <strong class="font-weight-normal custom-text-color-2">@Model.Email</strong>
                                 </span>
                             </span>
                         </a>
