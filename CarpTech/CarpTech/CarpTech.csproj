@@ -296,6 +296,7 @@
   <ItemGroup>
     <Compile Include="App_Data\Models\About.generated.cs" />
     <Compile Include="App_Data\Models\Banner.generated.cs" />
+    <Compile Include="App_Data\Models\BasicComponents.generated.cs" />
     <Compile Include="App_Data\Models\Candidate.generated.cs" />
     <Compile Include="App_Data\Models\CandidateList.generated.cs" />
     <Compile Include="App_Data\Models\CompanyInfo.generated.cs" />
@@ -303,18 +304,25 @@
     <Compile Include="App_Data\Models\ContactForm.generated.cs" />
     <Compile Include="App_Data\Models\ContactItem.generated.cs" />
     <Compile Include="App_Data\Models\ContactList.generated.cs" />
+    <Compile Include="App_Data\Models\Counter.generated.cs" />
+    <Compile Include="App_Data\Models\Counters.generated.cs" />
+    <Compile Include="App_Data\Models\Event.generated.cs" />
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\Footer.generated.cs" />
     <Compile Include="App_Data\Models\GroupLinks.generated.cs" />
     <Compile Include="App_Data\Models\Header.generated.cs" />
+    <Compile Include="App_Data\Models\HistoryTimelines.generated.cs" />
     <Compile Include="App_Data\Models\Home.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
+    <Compile Include="App_Data\Models\NavigationBase.generated.cs" />
+    <Compile Include="App_Data\Models\PreviewControl.generated.cs" />
     <Compile Include="App_Data\Models\Service.generated.cs" />
     <Compile Include="App_Data\Models\Slider.generated.cs" />
     <Compile Include="App_Data\Models\SliderItem.generated.cs" />
     <Compile Include="App_Data\Models\TalkToUs.generated.cs" />
+    <Compile Include="App_Data\Models\WhyChooseUs.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

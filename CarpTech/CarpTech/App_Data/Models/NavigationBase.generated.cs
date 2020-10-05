@@ -19,78 +19,78 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Contact</summary>
-	[PublishedModel("contact")]
-	public partial class Contact : PublishedContentModel, IBanner, IContactForm
+	/// <summary>Navigation Base</summary>
+	[PublishedModel("navigationBase")]
+	public partial class NavigationBase : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public new const string ModelTypeAlias = "contact";
+		public new const string ModelTypeAlias = "navigationBase";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Contact, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NavigationBase, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Contact(IPublishedContent content)
+		public NavigationBase(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Banner Title
+		/// Keywords: Keywords that describe the content of the page. This is considered optional since most modern search engines don't use this anymore
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("bannerTitle")]
-		public string BannerTitle => global::Umbraco.Web.PublishedModels.Banner.GetBannerTitle(this);
+		[ImplementPropertyType("keywords")]
+		public global::System.Collections.Generic.IEnumerable<string> Keywords => this.Value<global::System.Collections.Generic.IEnumerable<string>>("keywords");
 
 		///<summary>
-		/// Image
+		/// OG Image: og:image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("image")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => global::Umbraco.Web.PublishedModels.Banner.GetImage(this);
+		[ImplementPropertyType("ogImage")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent OgImage => this.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("ogImage");
 
 		///<summary>
-		/// Description
+		/// OG Short Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("description")]
-		public global::System.Web.IHtmlString Description => global::Umbraco.Web.PublishedModels.ContactForm.GetDescription(this);
+		[ImplementPropertyType("ogShortDescription")]
+		public global::System.Web.IHtmlString OgShortDescription => this.Value<global::System.Web.IHtmlString>("ogShortDescription");
 
 		///<summary>
-		/// Email
+		/// OG Title: og:title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("email")]
-		public string Email => global::Umbraco.Web.PublishedModels.ContactForm.GetEmail(this);
+		[ImplementPropertyType("ogTitle")]
+		public string OgTitle => this.Value<string>("ogTitle");
 
 		///<summary>
-		/// Message
+		/// OG Url
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("message")]
-		public string Message => global::Umbraco.Web.PublishedModels.ContactForm.GetMessage(this);
+		[ImplementPropertyType("ogUrl")]
+		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link> OgUrl => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.Models.Link>>("ogUrl");
 
 		///<summary>
-		/// Phone
+		/// Description: A brief description of the content on your page. This text is shown below the title in a google search result and also used for Social Sharing Cards. The ideal length is between 130 and 155 characters
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("phone")]
-		public string Phone => global::Umbraco.Web.PublishedModels.ContactForm.GetPhone(this);
+		[ImplementPropertyType("seoMetaDescription")]
+		public string SeoMetaDescription => this.Value<string>("seoMetaDescription");
 
 		///<summary>
-		/// Name
+		/// Hide in Navigation: If you don't want this page to appear in the navigation, check this box
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("yourName")]
-		public string YourName => global::Umbraco.Web.PublishedModels.ContactForm.GetYourName(this);
+		[ImplementPropertyType("umbracoNavihide")]
+		public bool UmbracoNavihide => this.Value<bool>("umbracoNavihide");
 	}
 }
