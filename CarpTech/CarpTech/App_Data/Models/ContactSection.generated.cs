@@ -31,6 +31,10 @@ namespace Umbraco.Web.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image { get; }
 
+		/// <summary>Sub Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		string SubTitleContactSection { get; }
+
 		/// <summary>Title</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		string Title { get; }
@@ -82,6 +86,17 @@ namespace Umbraco.Web.PublishedModels
 		/// <summary>Static getter for Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetImage(IContactSection that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("image");
+
+		///<summary>
+		/// Sub Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("subTitleContactSection")]
+		public string SubTitleContactSection => GetSubTitleContactSection(this);
+
+		/// <summary>Static getter for Sub Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static string GetSubTitleContactSection(IContactSection that) => that.Value<string>("subTitleContactSection");
 
 		///<summary>
 		/// Title

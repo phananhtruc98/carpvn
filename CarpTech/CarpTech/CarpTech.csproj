@@ -304,6 +304,7 @@
     <Compile Include="App_Data\Models\ContactForm.generated.cs" />
     <Compile Include="App_Data\Models\ContactItem.generated.cs" />
     <Compile Include="App_Data\Models\ContactList.generated.cs" />
+    <Compile Include="App_Data\Models\ContactSection.generated.cs" />
     <Compile Include="App_Data\Models\Counter.generated.cs" />
     <Compile Include="App_Data\Models\Counters.generated.cs" />
     <Compile Include="App_Data\Models\Event.generated.cs" />
@@ -316,6 +317,7 @@
     <Compile Include="App_Data\Models\Home.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
+    <Compile Include="App_Data\Models\MissionVision.generated.cs" />
     <Compile Include="App_Data\Models\NavigationBase.generated.cs" />
     <Compile Include="App_Data\Models\PreviewControl.generated.cs" />
     <Compile Include="App_Data\Models\Service.generated.cs" />
