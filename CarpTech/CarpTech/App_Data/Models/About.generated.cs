@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>About</summary>
 	[PublishedModel("about")]
-	public partial class About : PublishedContentModel, IBanner
+	public partial class About : PublishedContentModel, IBanner, IContactSection
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -45,6 +45,13 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Banner Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("bannerImage")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent BannerImage => global::Umbraco.Web.PublishedModels.Banner.GetBannerImage(this);
+
+		///<summary>
 		/// Banner Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
@@ -52,10 +59,24 @@ namespace Umbraco.Web.PublishedModels
 		public string BannerTitle => global::Umbraco.Web.PublishedModels.Banner.GetBannerTitle(this);
 
 		///<summary>
+		/// Description
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("description")]
+		public string Description => global::Umbraco.Web.PublishedModels.ContactSection.GetDescription(this);
+
+		///<summary>
 		/// Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("image")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => global::Umbraco.Web.PublishedModels.Banner.GetImage(this);
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => global::Umbraco.Web.PublishedModels.ContactSection.GetImage(this);
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("title")]
+		public string Title => global::Umbraco.Web.PublishedModels.ContactSection.GetTitle(this);
 	}
 }

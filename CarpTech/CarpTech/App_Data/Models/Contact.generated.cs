@@ -45,18 +45,18 @@ namespace Umbraco.Web.PublishedModels
 		// properties
 
 		///<summary>
+		/// Banner Image
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("bannerImage")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent BannerImage => global::Umbraco.Web.PublishedModels.Banner.GetBannerImage(this);
+
+		///<summary>
 		/// Banner Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("bannerTitle")]
 		public string BannerTitle => global::Umbraco.Web.PublishedModels.Banner.GetBannerTitle(this);
-
-		///<summary>
-		/// Image
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("image")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => global::Umbraco.Web.PublishedModels.Banner.GetImage(this);
 
 		///<summary>
 		/// Description

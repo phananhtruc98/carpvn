@@ -19,64 +19,79 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	// Mixin Content Type with alias "banner"
-	/// <summary>Banner</summary>
-	public partial interface IBanner : IPublishedContent
+	// Mixin Content Type with alias "contactSection"
+	/// <summary>Contact Section</summary>
+	public partial interface IContactSection : IPublishedContent
 	{
-		/// <summary>Banner Image</summary>
+		/// <summary>Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		global::Umbraco.Core.Models.PublishedContent.IPublishedContent BannerImage { get; }
+		string Description { get; }
 
-		/// <summary>Banner Title</summary>
+		/// <summary>Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		string BannerTitle { get; }
+		global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image { get; }
+
+		/// <summary>Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		string Title { get; }
 	}
 
-	/// <summary>Banner</summary>
-	[PublishedModel("banner")]
-	public partial class Banner : PublishedContentModel, IBanner
+	/// <summary>Contact Section</summary>
+	[PublishedModel("contactSection")]
+	public partial class ContactSection : PublishedContentModel, IContactSection
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public new const string ModelTypeAlias = "banner";
+		public new const string ModelTypeAlias = "contactSection";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Banner, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<ContactSection, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Banner(IPublishedContent content)
+		public ContactSection(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Banner Image
+		/// Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("bannerImage")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent BannerImage => GetBannerImage(this);
+		[ImplementPropertyType("description")]
+		public string Description => GetDescription(this);
 
-		/// <summary>Static getter for Banner Image</summary>
+		/// <summary>Static getter for Description</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetBannerImage(IBanner that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("bannerImage");
+		public static string GetDescription(IContactSection that) => that.Value<string>("description");
 
 		///<summary>
-		/// Banner Title
+		/// Image
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("bannerTitle")]
-		public string BannerTitle => GetBannerTitle(this);
+		[ImplementPropertyType("image")]
+		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent Image => GetImage(this);
 
-		/// <summary>Static getter for Banner Title</summary>
+		/// <summary>Static getter for Image</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static string GetBannerTitle(IBanner that) => that.Value<string>("bannerTitle");
+		public static global::Umbraco.Core.Models.PublishedContent.IPublishedContent GetImage(IContactSection that) => that.Value<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>("image");
+
+		///<summary>
+		/// Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("title")]
+		public string Title => GetTitle(this);
+
+		/// <summary>Static getter for Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		public static string GetTitle(IContactSection that) => that.Value<string>("title");
 	}
 }
