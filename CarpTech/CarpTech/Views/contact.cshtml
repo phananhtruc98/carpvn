@@ -1,0 +1,149 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    Layout = "master.cshtml";
+    var contact = Umbraco.AssignedContentItem as Contact;
+    var home = Umbraco.ContentAtRoot().FirstOrDefault(x => x.ContentType.Alias == Home.ModelTypeAlias) as Home;
+    var socialMedias = home.SocialMedia;
+}
+<section class="section section-parallax parallax custom-parallax-medium-padding m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="@contact.BannerImage.MediaUrl()">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-uppercase text-color-light font-weight-bold text-center m-0">@contact.BannerTitle</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-no-border bg-color-light custom-section-spacement-1 m-0 pb-0">
+    <div class="container">
+        <div class="row text-center text-lg-left">
+            <div class="col-md-6 col-lg-3 custom-min-height-1 custom-center-xs">
+                <img src="/img/custom-icon-6.png" alt class="mb-3" />
+                <h4 class="font-weight-semibold mb-3">Address</h4>
+                <p class="custom-text-color-1">
+                   @home.Address
+                </p>
+            </div>
+            <div class="col-md-6 col-lg-3 custom-min-height-1 custom-center-xs">
+                <img src="/img/custom-icon-7.png" alt class="mb-3" />
+                <h4 class="font-weight-semibold mb-3">Phone</h4>
+                <ul class="custom-list-style-3">
+                    <li>
+                        <span class="title text-color-dark">Office <span class="custom-text-color-1 float-right">:</span></span>
+                        <span class="value">
+                            <a href="tel:02822508707" class="custom-text-color-1">@home.PhoneNumber</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="title text-color-dark">Sale <span class="custom-text-color-1 float-right">:</span></span>
+                        <span class="value">
+                            <a href="tel:+@home.PhoneNumber" class="custom-text-color-1">@home.PhoneNumber</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-3 custom-min-height-1 custom-center-xs">
+                <img src="/img/custom-icon-8.png" alt class="mb-3" />
+                <h4 class="font-weight-semibold mb-3">Email</h4>
+                <ul class="custom-list">
+                    <li>
+                        <a href="mail:@home.Email" class="custom-text-color-1" title="Contact Us">@home.Email</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-lg-3 custom-min-height-1 custom-center-xs">
+                <img src="/img/custom-icon-9.png" alt class="mb-3" />
+                <h4 class="font-weight-semibold mb-3">Social media</h4>
+                <ul class="custom-list">
+                    @foreach (var item in socialMedias)
+                    {
+                        var square = item.Name == "Linkedin" ? "" : "-square";
+                        <li>
+                            <i class="fab fa-@item.Name.ToLower()@square custom-text-color-1 mr-2"></i>
+                            <a href="@item.Url" class="custom-text-color-1" title="@item.Name">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*<-- form gửi message -->*@
+    <section class="section section-no-border section-primary custom-section-spacement-1 m-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="text-uppercase font-weight-bold text-color-light d-block">@contact.TitleContactForm</h2>
+                    <p class="text-4 text-color-light mb-5">@contact.SubTitleContactForm</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form id="contactForm" class="contact-form custom-form-style contact-page" action="php/contact-form.php" method="POST">
+                        <div class="contact-form-success alert alert-success d-none mt-4" id="contactFormSuccess">
+                            <strong>Success!</strong> Your message has been sent to us.
+                        </div>
+
+                        <div class="contact-form-error alert alert-danger d-none mt-4" id="contactFormError">
+                            <strong>Error!</strong> There was an error sending your message.
+                            <span class="mail-error-message text-1 mt-2 d-block" id="contactFormErrorMessage"></span>
+                        </div>
+
+                        <input type="hidden" name="subject" value="Contact Message Received" />
+                        <div class="form-row">
+                            <div class="form-group col-lg-6">
+                                <div class="form-control-custom">
+                                    <i class="icon-user icons text-color-light"></i>
+                                    <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" placeholder="@contact.YourName" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <div class="form-control-custom">
+                                    <i class="icon-envelope icons text-color-light"></i>
+                                    <input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" placeholder="@contact.YourEmail" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-lg-6">
+                                <div class="form-control-custom">
+                                    <i class="icon-call-out icons text-color-light"></i>
+                                    <input type="text" value="" data-msg-required="Please enter your phone number." maxlength="100" class="form-control" name="phone" id="phone" placeholder="@contact.YourPhone" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <div class="form-control-custom custom-select-style mb-0">
+                                    <i class="icon-target icons text-color-light"></i>
+                                    <select data-msg-required="Please select..." class="form-control" name="selectSample" id="selectSample" placeholder="Services *" required>
+                                        <option value="">...</option>
+                                        <option value="Option 1">Option 1</option>
+                                        <option value="Option 2">Option 2</option>
+                                        <option value="Option 3">Option 3</option>
+                                        <option value="Option 4">Option 4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <div class="form-control-custom">
+                                    <i class="icon-bubble icons text-color-light"></i>
+                                    <textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="message" id="message" placeholder="@contact.YourMessage" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row text-center">
+                            <div class="form-group col">
+                                <input type="submit" value="Submit Now" class="btn btn-outline custom-btn-style-4 text-uppercase" data-loading-text="Loading...">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps - Go to the bottom of the page to change settings and map location. -->
+    <div id="googlemaps"></div>
