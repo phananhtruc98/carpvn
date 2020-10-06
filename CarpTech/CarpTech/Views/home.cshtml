@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Home>
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<Home>
 @using Umbraco.Web.PublishedModels;
 @using System.Text.RegularExpressions
 @{
@@ -66,68 +66,68 @@
     </div>
 </div>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-6 p-0">
-            <section class="parallax section section-parallax custom-parallax-bg-pos-left custom-sec-left h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}"
-                     data-image-src="img/demos/finance/parallax/parallax-1.jpg" style="min-height: 315px;">
-            </section>
-        </div>
-        <div class="col-lg-6 p-0">
-            <section class="section section-no-border h-100 m-0">
-                <div class="row m-0">
-                    <div class="col-half-section col-half-section-left">
-                        <h2 class="text-uppercase mt-2 font-weight-bold">SOFTWARE SERVICES</h2>
-                        <p class="text-4 text-color-dark">Software development and outsourcing</p>
-                        <p class="custom-text-color-1 mb-4">
-                            Base on your requirements, we can provide a ready-to-use solution or develop a unique software solution for your business. We can also provide experts to solve your IT problems on site as
-                            requested
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                @*<section class="parallax section section-parallax custom-parallax-bg-pos-left custom-sec-left h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}"
+                         data-image-src="/img/demos/finance/parallax/parallax-1.jpg" style="min-height: 315px;">
+                </section>*@
+            </div>
+            <div class="col-lg-6 p-0">
+                <section class="section section-no-border h-100 m-0">
+                    <div class="row m-0">
+                        <div class="col-half-section col-half-section-left">
+                            <h2 class="text-uppercase mt-2 font-weight-bold">SOFTWARE SERVICES</h2>
+                            <p class="text-4 text-color-dark">Software development and outsourcing</p>
+                            <p class="custom-text-color-1 mb-4">
+                                Base on your requirements, we can provide a ready-to-use solution or develop a unique software solution for your business. We can also provide experts to solve your IT problems on site as
+                                requested
 
-                        </p>
-                        <a href="service.html" class="btn btn-outline btn-primary custom-btn-style-2 font-weight-semibold text-color-dark text-uppercase mt-2">Read More</a>
+                            </p>
+                            <a href="service.html" class="btn btn-outline btn-primary custom-btn-style-2 font-weight-semibold text-color-dark text-uppercase mt-2">Read More</a>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 p-0">
+                <section class="section section-no-border h-100 m-0">
+                    <div class="row justify-content-end m-0">
+                        <div class="col-half-section col-half-section-right custom-text-align-right">
+                            <h2 class="text-uppercase mt-2 font-weight-bold">ICT HARDWARE SUPPLIER</h2>
+                            <p class="text-4 text-color-dark">Wide range of hardware brands</p>
+                            <p class="custom-text-color-1 mb-4">Despite of your budget, we always have the bills that fit</p>
+                            <a href="service.html" class="btn btn-outline btn-primary custom-btn-style-2 font-weight-semibold text-color-dark text-uppercase mt-2">Read More</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 p-0">
+                @*<section class="parallax section section-parallax h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}" data-image-src="img/demos/finance/parallax/parallax-2.jpg" style="min-height: 315px;">
+                </section>*@
+            </div>
+        </div>
+       <div class="row">
+            <div class="col-lg-6 p-0">
+                @*<section class="parallax section section-parallax custom-parallax-bg-pos-left custom-sec-left h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}"
+                         data-image-src="/img/demos/finance/parallax/parallax-3.jpg" style="min-height: 315px;">
+                </section>*@
+            </div>
+            <div class="col-lg-6 p-0">
+                <section class="section section-no-border h-100 m-0">
+                    <div class="row m-0">
+                        <div class="col-half-section col-half-section-left">
+                            <h2 class="text-uppercase mt-2 font-weight-bold">Getting Started</h2>
+                            <p class="text-4 text-color-dark">Let's talk</p>
+                            <p class="custom-text-color-1 mb-4">We can speak Vietnamese, English, Chinese. Don’t hesitate to drop us an email.</p>
+                            <a href="contact.html" class="btn btn-outline btn-primary custom-btn-style-2 font-weight-semibold text-color-dark text-uppercase mt-2">Do it now</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-6 order-2 order-lg-1 p-0">
-            <section class="section section-no-border h-100 m-0">
-                <div class="row justify-content-end m-0">
-                    <div class="col-half-section col-half-section-right custom-text-align-right">
-                        <h2 class="text-uppercase mt-2 font-weight-bold">ICT HARDWARE SUPPLIER</h2>
-                        <p class="text-4 text-color-dark">Wide range of hardware brands</p>
-                        <p class="custom-text-color-1 mb-4">Despite of your budget, we always have the bills that fit</p>
-                        <a href="service.html" class="btn btn-outline btn-primary custom-btn-style-2 font-weight-semibold text-color-dark text-uppercase mt-2">Read More</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 p-0">
-            <section class="parallax section section-parallax h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}" data-image-src="img/demos/finance/parallax/parallax-2.jpg" style="min-height: 315px;">
-            </section>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-6 p-0">
-            <section class="parallax section section-parallax custom-parallax-bg-pos-left custom-sec-left h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}"
-                     data-image-src="img/demos/finance/parallax/parallax-3.jpg" style="min-height: 315px;">
-            </section>
-        </div>
-        <div class="col-lg-6 p-0">
-            <section class="section section-no-border h-100 m-0">
-                <div class="row m-0">
-                    <div class="col-half-section col-half-section-left">
-                        <h2 class="text-uppercase mt-2 font-weight-bold">Getting Started</h2>
-                        <p class="text-4 text-color-dark">Let's talk</p>
-                        <p class="custom-text-color-1 mb-4">We can speak Vietnamese, English, Chinese. Don’t hesitate to drop us an email.</p>
-                        <a href="contact.html" class="btn btn-outline btn-primary custom-btn-style-2 font-weight-semibold text-color-dark text-uppercase mt-2">Do it now</a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </div>
-</div>
 
 <section class="section section-no-border section-primary custom-section-spacement-1 m-0">
     <div class="container">
@@ -176,7 +176,7 @@
                     <div class="col-half-section col-half-section-right">
                         <h2 class="text-uppercase text-color-light font-weight-bold">@Model.TitleContactForm</h2>
                         <p class="text-4 custom-text-color-2 mb-3">@Model.SubTitleContactForm</p>
-                        <!-- nhân sửa lại đoạn này để có thể lưu dữ liệu được -->
+                         nhân sửa lại đoạn này để có thể lưu dữ liệu được 
                         <form id="callSendMessage" class="contact-form custom-form-style" action="php/contact-form.php" method="POST">
                             <div class="contact-form-success alert alert-success d-none mt-4" id="contactFormSuccess">
                                 <strong>Success!</strong> Your message has been sent to us.
@@ -205,7 +205,7 @@
                                     <i class="icon-bubbles icons"></i>
                                     <input type="text" class="form-control" name="discuss" placeholder="@Model.YourMessage" data-msg-required="This field is required." id="discuss" required="" />
                                 </div>
-                                <!-- Sửa type input lại bằng submit sau khi sửa code-->
+                                 Sửa type input lại bằng submit sau khi sửa code
                                 <input type="button" class="btn custom-btn-style-1 custom-btn-padding-1 custom-btn-bg-color-1 text-color-light text-uppercase font-weight-semibold outline-none mt-4" value="Submit" />
                             </div>
                         </form>

@@ -1,8 +1,141 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using System.Text.RegularExpressions
 @{
-	Layout = "master.cshtml";
-	var a = Umbraco.AssignedContentItem;
+    Layout = "master.cshtml";
+    var about = Umbraco.AssignedContentItem as About; 
+    var home = Umbraco.ContentAtRoot().FirstOrDefault(x => x.ContentType.Alias == Home.ModelTypeAlias) as Home;
+    var basicComponent = Umbraco.ContentAtRoot().FirstOrDefault(x => x.ContentType.Alias == BasicComponents.ModelTypeAlias);
+    var counters = basicComponent.ChildrenOfType(Counters.ModelTypeAlias).FirstOrDefault().Value<IEnumerable<Counter>>(nameof(Counters.CounterContent).ToSafeAlias());
+    var historyTimelines = basicComponent.ChildrenOfType(HistoryTimelines.ModelTypeAlias).FirstOrDefault() as HistoryTimelines;
+    var historyTimelineEvents = historyTimelines.Value<IEnumerable<Event>>(nameof(HistoryTimelines.HistoryTimelinesContent).ToSafeAlias());
 }
-hello
-@* the fun starts here *@
+
+<section class="section section-parallax parallax custom-parallax-medium-padding m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="@about.BannerImage.MediaUrl()">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-uppercase text-color-light font-weight-bold text-center m-0">@about.BannerTitle</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-no-border custom-section-spacement-1 bg-color-light m-0">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="text-uppercase text-color-dark font-weight-bold">@about.TitleAboutUs</h2>
+                <p class="text-4 text-color-dark mb-5">@about.TitleAboutUs</p>
+                <p class="custom-text-color-1">
+                    @about.Content
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-no-border bg-color-light custom-section-spacement-2 m-0">
+    <div class="container">
+        <div class="row justify-content-center counters custom-counters counters-text-light">
+            @foreach (Counter counter in counters)
+            {
+                var dataAppend = counter.Number.Contains("+") ? "+" : "";
+                var number = Regex.Split(counter.Number, @"\D+").FirstOrDefault();
+                <div class="col-lg-3 mb-5 mb-lg-0">
+                    <div class="counter text-center">
+                        <span class="text-color-primary" data-to="@number" data-append="@dataAppend">0</span>
+                        <span class="text-color-primary">@counter.Text</span>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section section-no-border section-primary custom-section-s  pacement-1 m-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="feature-box feature-box-style-2">
+                    <div class="feature-box-icon w-auto h-auto pt-0">
+                        @*<img src="/img/demos/finance/icons/custom-icon-1.png" alt class="img-fluid" />*@
+                    </div>
+                    <div class="feature-box-info">
+                        <h2 class="text-uppercase text-color-light font-weight-bold pt-1 mb-0">@about.Vision</h2>
+                        <p class="custom-text-color-4 text-4 mb-4">@about.VisionContent</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="feature-box feature-box-style-2">
+                    <div class="feature-box-icon w-auto h-auto pt-0">
+                        @* <img src="/img/demos/finance/icons/custom-icon-2.png" alt class="img-fluid" />*@
+                    </div>
+                    <div class="feature-box-info">
+                        <h2 class="text-uppercase text-color-light font-weight-bold pt-1 mb-0">@about.Mission</h2>
+                        <p class="custom-text-color-4 text-4 mb-4">@about.MissionContent</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-no-border custom-section-spacement-1 bg-color-light m-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="text-uppercase text-color-dark font-weight-bold">@historyTimelines.Title</h2>
+                <p class="text-4 text-color-dark mb-4">@historyTimelines.Description</p>
+                <p class="custom-text-color-1">.</p>
+                <div class="custom-timeline">
+                    @foreach (Event e in historyTimelineEvents)
+                    {
+                        <div class="custom-timeline-box">
+                            <span class="date font-weight-bold text-color-primary line-height-6">@e.Year</span>
+                            <h4 class="text-color-dark font-weight-semibold">@e.Title</h4>
+                            <p class="custom-text-color-1">@e.ShortDescription</p>
+                        </div>
+                    }
+                    <div class="timeline-bar"></div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="@historyTimelines.MainImage.MediaUrl()" alt class="img-fluid" />
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section section-parallax parallax custom-parallax-big-padding m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="@about.ImageContactSection.MediaUrl()">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="custom-text-size-1 text-color-light font-weight-semibold">@about.TitleContactSection</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-2">
+            <div class="col-lg-3 custom-right-border">
+                <a href="tel:02822508707" class="custom-text-color-4 custom-hover-opacity text-decoration-none">
+                    <div class="custom-contact-item text-center">
+                        <i class="icon-call-in icons"></i>
+                        <span class="title text-uppercase font-weight-bold">Call Us Now</span>
+                        <span class="content text-color-light">@home.PhoneNumber</span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3">
+                <a href="mailto:hello@carp.vn" class="custom-text-color-4 custom-hover-opacity text-decoration-none">
+                    <div class="custom-contact-item text-center">
+                        <i class="icon-envelope icons"></i>
+                        <span class="title text-uppercase font-weight-bold">Send An Email</span>
+                        <span class="content text-color-light">@home.Email</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
