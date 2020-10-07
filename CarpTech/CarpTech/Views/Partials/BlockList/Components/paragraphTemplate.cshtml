@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<Umbraco.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+    var content = (ContentModels.ParagraphTemplate)Model.Content;
+}
+<div class="row" id="para-template" ng-model="block">
+    <div class="col-lg-8">
+        <div class="overflow-hidden mb-2">
+            <h2 class="font-weight-normal text-7 mb-2 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+                @content.Value(nameof(ParagraphTemplate.Header).ToSafeAlias())<strong class="font-weight-extra-bold">@content.Value(nameof(ParagraphTemplate.HeaderBold).ToSafeAlias())</strong>
+            </h2>
+        </div>
+        <div class="overflow-hidden mb-4">
+            <p class="lead mb-0 appear-animation animated maskUp appear-animation-visible" data-appear-animation="maskUp" data-appear-animation-delay="400" style="animation-delay: 400ms;">@content.Value(nameof(ParagraphTemplate.ShortDescription).ToSafeAlias())</p>
+        </div>
+        <p class="text-color-light-3 mb-4 appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="600" style="animation-delay: 600ms;">
+            @content.Value(nameof(ParagraphTemplate.Description).ToSafeAlias())
+        </p>
+    </div>
+    <div class="col-lg-4">
+        <div class="testimonial testimonial-primary appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="800" style="animation-delay: 800ms;">
+            <blockquote>
+                <p class="mb-0">
+                    @content.Value(nameof(ParagraphTemplate.BlockQuote).ToSafeAlias())
+                </p>
+            </blockquote>
+        </div>
+    </div>
+</div>

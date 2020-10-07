@@ -1,7 +1,270 @@
 ﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
-	Layout = "master.cshtml";
+    Layout = "master.cshtml";
+    var career = Umbraco.AssignedContentItem as Career;
 }
+<!-- Phần header của main -->
+<section class="section section-parallax parallax custom-parallax-medium-padding m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="@career.BannerImage.MediaUrl()">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-uppercase text-color-light font-weight-bold text-center m-0">@career.BannerTitle</h1>
+            </div>
+        </div>
+    </div>
+</section>
 
-@* the fun starts here *@
+<!-- phần nội dung chính -->
+<div class="container py-5 mt-3">
+    @Html.GetBlockListHtml(career.Content)
 
+
+</div>
+
+<section class="section section-default border-0 m-0">
+    <div class="container py-4">
+
+        <div class="row pb-4">
+            <div class="col-md-8">
+                <div class="appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+                    <h4 class="mt-2 mb-2">Current <strong>Openings</strong></h4>
+
+                    <div class="accordion accordion-modern accordion-modern-grey-scale-1 without-bg mt-4" id="accordion11">
+                        @foreach (IPublishedContent item in career.CurrentOpenings)
+                        {
+                            <div class="card card-default mb-2">
+                                <div class="card-header">
+                                    <h4 class="card-title m-0">
+                                        <a class="accordion-toggle text-3" data-toggle="collapse" data-parent="#accordion11" href="#collapse11One" aria-expanded="true">
+                                            @item.Name: @item.Value("quantity")
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse11One" class="collapse show" style="">
+                                    <div class="card-body mt-3">
+                                        @*@{
+                                            var jobtitle = item.Value<JobTemplate2,IPublishedContent>(nameof(JobDescription.Content).ToSafeAlias());
+                                        }*@
+                                        <ul class="list list-inline mt-4 mb-3 text-2">
+                                            <li class="list-inline-item">
+                                                <strong>LOCATION:</strong>
+                                                @item.Value(nameof(JobTemplate2.Location).ToSafeAlias())
+                                                @*@jobtitle*@
+                                            </li>
+                                            <li class="list-inline-item ml-md-3">
+                                                <strong>QUALIFICATION:</strong>
+                                                @item.Value(nameof(JobTemplate2.Qualifications).ToSafeAlias())
+                                            </li>
+                                        </ul>
+                                        }
+                                        @*else if (item.ContentType.Alias == nameof(JobTemplate1.ContentType.Alias))
+                                            {
+                                                @Html.Raw(item.Value(nameof(JobTemplate1.Content).ToSafeAlias()));
+                                            }*@
+                                        <a href="#" class="btn btn-modern btn-dark">@item.Value(nameof(JobDescription.ButtonText).ToSafeAlias())</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        @*<div class="card card-default mb-2">
+                                <div class="card-header">
+                                    <h4 class="card-title m-0">
+                                        <a class="accordion-toggle text-3 collapsed" data-toggle="collapse" data-parent="#accordion11" href="#collapse11Two" aria-expanded="false">
+                                            Business Analyst
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse11Two" class="collapse">
+                                    <div class="card-body mt-3">
+                                        <p>
+                                            Suspendisse potenti. Curabitur euismod facilisis neque, eu malesuada diam finibus non. Nullam nec vehicula leo. Morbi porta ante eu feugiat mollis ellus blandit massa enim. Nullam id varius nunc ellus blandit massa enim.
+                                            Nullam id varius nunc.
+                                        </p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Vivamus bibendum magna ex, et faucibus lacus venenatis eget.</p>
+
+                                        <ul class="list list-inline mt-4 mb-3 text-2">
+                                            <li class="list-inline-item">
+                                                <strong>LOCATION:</strong>
+                                                HO CHI MINH CITY
+                                            </li>
+                                            <li class="list-inline-item ml-md-3">
+                                                <strong>QUALIFICATION:</strong>
+                                                1+ YEARS EXPERIENCE
+                                            </li>
+                                        </ul>
+
+                                        <a href="#" class="btn btn-modern btn-dark">Apply</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-default mb-2">
+                                <div class="card-header">
+                                    <h4 class="card-title m-0">
+                                        <a class="accordion-toggle text-3 collapsed" data-toggle="collapse" data-parent="#accordion11" href="#collapse11Three" aria-expanded="false">
+                                            Web Developer - Fresher
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse11Three" class="collapse">
+                                    <div class="card-body mt-3">
+                                        <p>
+                                            Suspendisse potenti. Curabitur euismod facilisis neque, eu malesuada diam finibus non. Nullam nec vehicula leo. Morbi porta ante eu feugiat mollis ellus blandit massa enim. Nullam id varius nunc ellus blandit massa enim.
+                                            Nullam id varius nunc.
+                                        </p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Vivamus bibendum magna ex, et faucibus lacus venenatis eget.</p>
+
+                                        <ul class="list list-inline mt-4 mb-3 text-2">
+                                            <li class="list-inline-item">
+                                                <strong>LOCATION:</strong>
+                                                HO CHI MINH CITY
+                                            </li>
+                                            <li class="list-inline-item ml-md-3">
+                                                <strong>QUALIFICATION:</strong>
+                                                KNOW HOW TO CODE
+                                            </li>
+                                        </ul>
+
+                                        <a href="#" class="btn btn-modern btn-dark">Apply</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-default mb-2">
+                                <div class="card-header">
+                                    <h4 class="card-title m-0">
+                                        <a class="accordion-toggle text-3 collapsed" data-toggle="collapse" data-parent="#accordion11" href="#collapse11Four" aria-expanded="false">
+                                            Front-End Developer
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse11Four" class="collapse">
+                                    <div class="card-body mt-3">
+                                        <p>
+                                            Suspendisse potenti. Curabitur euismod facilisis neque, eu malesuada diam finibus non. Nullam nec vehicula leo. Morbi porta ante eu feugiat mollis ellus blandit massa enim. Nullam id varius nunc ellus blandit massa enim.
+                                            Nullam id varius nunc.
+                                        </p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Vivamus bibendum magna ex, et faucibus lacus venenatis eget.</p>
+
+                                        <ul class="list list-inline mt-4 mb-3 text-2">
+                                            <li class="list-inline-item">
+                                                <strong>LOCATION:</strong>
+                                                HO CHI MINH CITY
+                                            </li>
+                                            <li class="list-inline-item ml-md-3">
+                                                <strong>QUALIFICATION:</strong>
+                                                3+ YEARS EXPERIENCE, GRADUATION
+                                            </li>
+                                        </ul>
+
+                                        <a href="#" class="btn btn-modern btn-dark">Apply</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card card-default mb-2">
+                                <div class="card-header">
+                                    <h4 class="card-title m-0">
+                                        <a class="accordion-toggle text-3 collapsed" data-toggle="collapse" data-parent="#accordion11" href="#collapse11Five" aria-expanded="false">
+                                            Customer Officer
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse11Five" class="collapse">
+                                    <div class="card-body mt-3">
+                                        <p>
+                                            Suspendisse potenti. Curabitur euismod facilisis neque, eu malesuada diam finibus non. Nullam nec vehicula leo. Morbi porta ante eu feugiat mollis ellus blandit massa enim. Nullam id varius nunc ellus blandit massa enim.
+                                            Nullam id varius nunc.
+                                        </p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit massa enim. Nullam id varius nunc. Vivamus bibendum magna ex, et faucibus lacus venenatis eget.</p>
+
+                                        <ul class="list list-inline mt-4 mb-3 text-2">
+                                            <li class="list-inline-item">
+                                                <strong>LOCATION:</strong>
+                                                HO CHI MINH CITY
+                                            </li>
+                                            <li class="list-inline-item ml-md-3">
+                                                <strong>QUALIFICATION:</strong>
+                                                3+ YEARS EXPERIENCE, GRADUATION
+                                            </li>
+                                        </ul>
+
+                                        <a href="#" class="btn btn-modern btn-dark">Apply</a>
+                                    </div>
+                                </div>
+                            </div>*@
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="appear-animation animated fadeIn appear-animation-visible" data-appear-animation="fadeIn" data-appear-animation-delay="400" style="animation-delay: 400ms;">
+                    <div class="owl-carousel owl-theme dots-inside mb-0 pb-0 owl-loaded owl-drag owl-carousel-init" data-plugin-options="{'items': 1, 'autoplay': true, 'autoplayTimeout': 4000, 'margin': 10, 'animateOut': 'fadeOut', 'dots': false}"
+                         style="height: auto;">
+
+
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage" style="transform: translate3d(-1080px, 0px, 0px); transition: all 0s ease 0s; width: 2160px;">
+                                <div class="owl-item cloned" style="width: 350px; margin-right: 10px;">
+                                    <div class="pb-5">
+                                        <img alt="" class="img-fluid rounded box-shadow-3" src="img/generic/generic-corporate-3-2-full.jpg">
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 350px; margin-right: 10px;">
+                                    <div class="pb-5">
+                                        <img alt="" class="img-fluid rounded box-shadow-3" src="img/generic/generic-corporate-3-3-full.jpg">
+                                    </div>
+                                </div>
+                                <div class="owl-item" style="width: 350px; margin-right: 10px;">
+                                    <div class="pb-5">
+                                        <img alt="" class="img-fluid rounded box-shadow-3" src="img/generic/generic-corporate-3-2-full.jpg">
+                                    </div>
+                                </div>
+                                <div class="owl-item active" style="width: 350px; margin-right: 10px;">
+                                    <div class="pb-5">
+                                        <img alt="" class="img-fluid rounded box-shadow-3" src="img/generic/generic-corporate-3-3-full.jpg">
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 350px; margin-right: 10px;">
+                                    <div class="pb-5">
+                                        <img alt="" class="img-fluid rounded box-shadow-3" src="img/generic/generic-corporate-3-2-full.jpg">
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 350px; margin-right: 10px;">
+                                    <div class="pb-5">
+                                        <img alt="" class="img-fluid rounded box-shadow-3" src="img/generic/generic-corporate-3-3-full.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"></button><button type="button" role="presentation" class="owl-next"></button></div>
+                        <div class="owl-dots disabled"></div>
+                    </div>
+
+                    <div class="toggle toggle-primary toggle-simple" data-plugin-toggle="">
+                        <section class="toggle">
+                            <label>Our Benefits</label>
+                            <div class="toggle-content" style="display: none;">
+                                <p>
+                                    <ul>
+                                        @Html.Raw(career.OurBenefits)
+                                    </ul>
+                                </p>
+                            </div>
+                        </section>
+                        <section class="toggle">
+                            <label>Our Culture</label>
+                            <div class="toggle-content" style="display: none;">
+                                <p>
+                                    <ul>
+                                        @Html.Raw(career.OurCulture)
+                                    </ul>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- kết thúc phần nội dung chính -->
