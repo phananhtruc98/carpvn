@@ -1,0 +1,76 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@{
+    Layout = "master.cshtml";
+    var service = Umbraco.AssignedContentItem as Service;
+    var services = service.Services;
+    var home = Umbraco.ContentAtRoot().FirstOrDefault(x => x.ContentType.Alias == Home.ModelTypeAlias) as Home;
+}
+    <div role="main" class="main">
+
+        <section class="section section-parallax parallax custom-parallax-medium-padding m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="@service.BannerImage.MediaUrl()">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="text-uppercase text-color-light font-weight-bold text-center m-0">@service.BannerTitle</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-no-border section-tertiary custom-section-spacement-1 m-0">
+            <div class="container">
+                @foreach(ServiceGroup group in services)
+                {
+                    <div class="row text-center">
+                        <div class="col">
+                            <h2 class="text-uppercase text-color-dark font-weight-bold">@group.GroupName</h2>
+                            <p class="text-4 text-color-dark mb-5">@group.GroupDescription</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        @foreach (ServiceItem item in group.ServiceItems)
+                        {
+                            <div class="col-lg-4 col-sm-6">
+                                <article class="custom-post-style-1">
+                                    <img src="@item.OgImage.MediaUrl()" alt class="img-fluid mb-3" />
+                                    <h3 class="text-color-dark font-weight-bold mb-3">@item.OgTitle</h3>
+                                    <p class="custom-text-color-1">@item.OgShortDescription</p>
+                                </article>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </section>
+
+        <section class="section section-parallax parallax custom-parallax-big-padding m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="@service.ImageContactSection.MediaUrl()">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col">
+                        <h2 class="custom-text-size-1 text-color-light font-weight-semibold">@service.TitleContactSection</h2>
+                        <p class="custom-bottom-bar text-4 custom-text-color-4 mb-5">@service.SubTitleContactSection</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-2">
+                    <div class="col-lg-3 custom-right-border">
+                        <a href="tel:02822508707" class="custom-text-color-4 custom-hover-opacity text-decoration-none">
+                            <div class="custom-contact-item text-center">
+                                <i class="icon-call-in icons"></i>
+                                <span class="title text-uppercase font-weight-bold">Call Us Now</span>
+                                <span class="content text-color-light">@home.PhoneNumber</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3">
+                        <a href="mailto:hello@carp.vn" class="custom-text-color-4 custom-hover-opacity text-decoration-none">
+                            <div class="custom-contact-item text-center">
+                                <i class="icon-envelope icons"></i>
+                                <span class="title text-uppercase font-weight-bold">Send An Email</span>
+                                <span class="content text-color-light">@home.Email</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+

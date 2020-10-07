@@ -357,6 +357,8 @@
     <Content Include="Views\Partials\BlockList\Default.cshtml" />
     <Content Include="Views\about.cshtml" />
     <Content Include="Views\contact.cshtml" />
+    <Content Include="Views\career.cshtml" />
+    <Content Include="Views\service.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
