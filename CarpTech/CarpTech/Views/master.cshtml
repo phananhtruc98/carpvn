@@ -119,71 +119,50 @@
                 <div class="row text-center text-lg-left pt-5 pb-4">
                     <div class="col-md-3 mb-4 mb-lg-0">
                         <a href="#" class="text-decoration-none">
-                            <img src="/img/logo.png" width="100" height="45" class="img-fluid" alt />
+                            <img src="@home.Logo.MediaUrl()" width="100" height="45" class="img-fluid" alt />
                         </a>
                     </div>
                     <div class="col-md-2 mb-4 mb-lg-0">
                         <h5 class="text-color-dark font-weight-bold mb-1">Contact us</h5>
                         <ul>
                             <li>
-                                <a class="custom-text-color-1" href="tel:02822508707" target="_blank" title="Call Us">
-                                    0282 250 8707
+                                <a class="custom-text-color-1" href="tel:@home.PhoneNumber" target="_blank" title="Call Us">
+                                    @home.PhoneNumber
                                 </a>
                             </li>
                             <li>
                                 <a class="custom-text-color-1" href="mailto:hello@carp.vn" title="Contact Us">
-                                    hello@carp.vn
+                                    @home.Email
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-2 mb-4 mb-lg-0">
-                        <h5 class="text-color-dark font-weight-bold mb-1">Company</h5>
-                        <ul>
-                            <li>
-                                <a class="custom-text-color-1" href="about.html" title="About">
-                                    About
-                                </a>
-                            </li>
-                            <li>
-                                <a class="custom-text-color-1" href="career.html" title="Career">
-                                    Career
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2 mb-4 mb-lg-0">
-                        <h5 class="text-color-dark font-weight-bold mb-1">Policies</h5>
-                        <ul>
-                            <li>
-                                <a class="custom-text-color-1" href="#" title="Policies">
-                                    Privacy policy
-                                </a>
-                            </li>
-                            <li>
-                                <a class="custom-text-color-1" href="#" title="Terms of Use">
-                                    Terms of Use
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    @foreach (GroupLinks item in home.GroupMenu)
+                    {
+                        <div class="col-md-2 mb-4 mb-lg-0">
+                            <h5 class="text-color-dark font-weight-bold mb-1">@item.GroupTitle</h5>
+                            <ul>
+                                @foreach (var content in item.Contents)
+                                {
+                                    <li>
+                                        <a class="custom-text-color-1" href="@content.Url" title="@content.Name">
+                                            @content.Name
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    }                    
                     <div class="col-md-3">
                         <ul class="social-icons custom-social-icons float-lg-right">
-                            <li class="social-icons-facebook">
-                                <a href="https://www.facebook.com/carptech/" target="_blank" title="Facebook">
-                                    <i class="fab fa-facebook-f"></i>
+                            @foreach(var item in home.SocialMedia)
+                            {
+                            <li class="social-icons-@item.Name.ToLower()">
+                                <a href="@item.Url" target="_blank" title="@item.Name">
+                                    <i class="fab fa-@item.Name.ToLower()"></i>
                                 </a>
                             </li>
-                            <li class="social-icons-twitter">
-                                <a href="http://www.twitter.com/" target="_blank" title="Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="social-icons-instagram">
-                                <a href="http://www.instagram.com/" target="_blank" title="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
+                            }
                         </ul>
                     </div>
                 </div>
