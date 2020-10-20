@@ -19,71 +19,64 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Career</summary>
-	[PublishedModel("career")]
-	public partial class Career : PublishedContentModel, IBanner
+	/// <summary>Page Preview Control</summary>
+	[PublishedModel("pagePreviewControl")]
+	public partial class PagePreviewControl : PublishedElementModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public new const string ModelTypeAlias = "career";
+		public new const string ModelTypeAlias = "pagePreviewControl";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Career, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<PagePreviewControl, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Career(IPublishedContent content)
+		public PagePreviewControl(IPublishedElement content)
 			: base(content)
 		{ }
 
 		// properties
 
 		///<summary>
-		/// Content
+		/// Button Text
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("content")]
-		public global::Umbraco.Core.Models.Blocks.BlockListModel Content => this.Value<global::Umbraco.Core.Models.Blocks.BlockListModel>("content");
+		[ImplementPropertyType("buttonText")]
+		public string ButtonText => this.Value<string>("buttonText");
 
 		///<summary>
-		/// Current Openings
+		/// Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("currentOpenings")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent> CurrentOpenings => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>>("currentOpenings");
+		[ImplementPropertyType("pagePreviewDescription")]
+		public string PagePreviewDescription => this.Value<string>("pagePreviewDescription");
 
 		///<summary>
-		/// Our Benefits
+		/// Sub Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("ourBenefits")]
-		public global::System.Web.IHtmlString OurBenefits => this.Value<global::System.Web.IHtmlString>("ourBenefits");
+		[ImplementPropertyType("pagePreviewSubTitle")]
+		public string PagePreviewSubTitle => this.Value<string>("pagePreviewSubTitle");
 
 		///<summary>
-		/// Our Culture
+		/// Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("ourCulture")]
-		public global::System.Web.IHtmlString OurCulture => this.Value<global::System.Web.IHtmlString>("ourCulture");
+		[ImplementPropertyType("pagePreviewTitle")]
+		public string PagePreviewTitle => this.Value<string>("pagePreviewTitle");
 
 		///<summary>
-		/// Banner Image
+		/// Url
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("bannerImage")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent BannerImage => global::Umbraco.Web.PublishedModels.Banner.GetBannerImage(this);
-
-		///<summary>
-		/// Banner Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("bannerTitle")]
-		public string BannerTitle => global::Umbraco.Web.PublishedModels.Banner.GetBannerTitle(this);
+		[ImplementPropertyType("pageReviewUrl")]
+		public global::Umbraco.Web.Models.Link PageReviewUrl => this.Value<global::Umbraco.Web.Models.Link>("pageReviewUrl");
 	}
 }

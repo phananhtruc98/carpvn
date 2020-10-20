@@ -1,0 +1,165 @@
+﻿#para-template div > html.overflow-hidden .hamburguer-btn.hamburguer-btn-side-header-overlay {
+    right: 13px;
+}
+
+#para-template div > .text-7 {
+    font-size: 2em !important;
+}
+
+#para-template div > .mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+/* Animations */
+#para-template div > .appear-animation {
+    opacity: 0;
+}
+
+#para-template div > .appear-animation-visible {
+    opacity: 1;
+}
+#para-template div > .testimonial blockquote {
+    background: #CCC;
+    border-radius: 5px;
+    border: 0;
+    color: #666;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 40px 64px 40px 72px;
+    padding: 2.5rem 4rem 2.5rem 4.5rem;
+    position: relative;
+    border-radius: 0 !important;
+}
+    #para-template div > .testimonial blockquote p {
+        color: #FFF;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2em;
+    }
+/* Mask Up */
+@-webkit-keyframes maskUp {
+    from {
+        -webkit-transform: translate(0, 100%);
+        transform: translate(0, 100%);
+    }
+
+    to {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes maskUp {
+    from {
+        -webkit-transform: translate(0, 100%);
+        transform: translate(0, 100%);
+    }
+
+    to {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.font-weight-extra-bold, .font-weight-black {
+    font-weight: 900 !important;
+}
+
+#para-template div > html.overflow-hidden .hamburguer-btn.hamburguer-btn-side-header-overlay {
+    right: 13px;
+}
+
+#para-template div > p.lead {
+    line-height: 28.8px;
+    line-height: 1.8rem;
+}
+
+#para-template div > .mb-0,
+.my-0 {
+    margin-bottom: 0 !important;
+}
+/* Testimonials */
+#para-template div > .testimonial {
+    margin-bottom: 20px;
+}
+
+@keyframes fadeInUpShorter {
+    from {
+        opacity: 0;
+        -webkit-transform: translate(0, 50px);
+        transform: translate(0, 50px);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+.fadeInUpShorter {
+    -webkit-animation-name: fadeInUpShorter;
+    animation-name: fadeInUpShorter;
+}
+
+/* Parallax */
+.parallax {
+    background-color: transparent;
+    background-position: 50% 50%;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    position: relative;
+    clear: both;
+}
+
+    .parallax:not(.page-header):not(.match-height):not([class*="section-height-"]) {
+        margin: 70px 0;
+        padding: 50px 0;
+    }
+
+    .parallax blockquote {
+        border: 0;
+        padding: 0 10%;
+    }
+
+        .parallax blockquote i.fa-quote-left {
+            font-size: 34px;
+            position: relative;
+            left: -5px;
+        }
+
+        .parallax blockquote p {
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        .parallax blockquote span {
+            font-size: 16px;
+            line-height: 20px;
+            color: #999;
+            position: relative;
+            left: -5px;
+        }
+
+.parallax-disabled .parallax-background {
+    background-attachment: scroll !important;
+    background-position: 50% 50% !important;
+}
+#para-template div > .testimonial-primary blockquote {
+    background: #7a8eb2;
+}
+.#para-template div > testimonial blockquote p {
+    color: #FFF;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+}
+#para-template div > p {
+    color: #777;
+    line-height: 26px;
+    margin: 0 0 20px;
+}
+#para-template div > .overflow-hidden {
+    overflow: hidden !important;
+}
+
+#para-template div > .mb-4, .my-4 {
+    margin-bottom: 1.5rem !important;
+}

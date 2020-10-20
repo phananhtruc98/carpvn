@@ -19,30 +19,37 @@ using Umbraco.ModelsBuilder.Embedded;
 
 namespace Umbraco.Web.PublishedModels
 {
-	/// <summary>Career</summary>
-	[PublishedModel("career")]
-	public partial class Career : PublishedContentModel, IBanner
+	/// <summary>Job Description</summary>
+	[PublishedModel("jobDescription")]
+	public partial class JobDescription : PublishedContentModel
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public new const string ModelTypeAlias = "career";
+		public new const string ModelTypeAlias = "jobDescription";
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		public new static IPublishedContentType GetModelContentType()
 			=> PublishedModelUtility.GetModelContentType(ModelItemType, ModelTypeAlias);
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Career, TValue>> selector)
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<JobDescription, TValue>> selector)
 			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 #pragma warning restore 0109
 
 		// ctor
-		public Career(IPublishedContent content)
+		public JobDescription(IPublishedContent content)
 			: base(content)
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Button Text
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("buttonText")]
+		public string ButtonText => this.Value<string>("buttonText");
 
 		///<summary>
 		/// Content
@@ -52,38 +59,17 @@ namespace Umbraco.Web.PublishedModels
 		public global::Umbraco.Core.Models.Blocks.BlockListModel Content => this.Value<global::Umbraco.Core.Models.Blocks.BlockListModel>("content");
 
 		///<summary>
-		/// Current Openings
+		/// Job Title
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("currentOpenings")]
-		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent> CurrentOpenings => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Core.Models.PublishedContent.IPublishedContent>>("currentOpenings");
+		[ImplementPropertyType("jobTitle")]
+		public string JobTitle => this.Value<string>("jobTitle");
 
 		///<summary>
-		/// Our Benefits
+		/// Quantity
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("ourBenefits")]
-		public global::System.Web.IHtmlString OurBenefits => this.Value<global::System.Web.IHtmlString>("ourBenefits");
-
-		///<summary>
-		/// Our Culture
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("ourCulture")]
-		public global::System.Web.IHtmlString OurCulture => this.Value<global::System.Web.IHtmlString>("ourCulture");
-
-		///<summary>
-		/// Banner Image
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("bannerImage")]
-		public global::Umbraco.Core.Models.PublishedContent.IPublishedContent BannerImage => global::Umbraco.Web.PublishedModels.Banner.GetBannerImage(this);
-
-		///<summary>
-		/// Banner Title
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
-		[ImplementPropertyType("bannerTitle")]
-		public string BannerTitle => global::Umbraco.Web.PublishedModels.Banner.GetBannerTitle(this);
+		[ImplementPropertyType("quantity")]
+		public int Quantity => this.Value<int>("quantity");
 	}
 }

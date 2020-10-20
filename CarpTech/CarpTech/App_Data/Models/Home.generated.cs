@@ -59,6 +59,13 @@ namespace Umbraco.Web.PublishedModels
 		public string DescriptionIntro => this.Value<string>("descriptionIntro");
 
 		///<summary>
+		/// Pages
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
+		[ImplementPropertyType("pages")]
+		public global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.PagePreviewControl> Pages => this.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Web.PublishedModels.PagePreviewControl>>("pages");
+
+		///<summary>
 		/// Title Intro
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
