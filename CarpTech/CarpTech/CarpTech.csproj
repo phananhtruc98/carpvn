@@ -358,9 +358,6 @@
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\JobDescription.generated.cs" />
     <Compile Include="App_Data\Models\Jobs.generated.cs" />
-    <Compile Include="App_Data\Models\JobTemplate1.generated.cs" />
-    <Compile Include="App_Data\Models\JobTemplate2.generated.cs" />
-    <Compile Include="App_Data\Models\JobTemplate3.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\MissionVision.generated.cs" />
     <Compile Include="App_Data\Models\NavigationBase.generated.cs" />

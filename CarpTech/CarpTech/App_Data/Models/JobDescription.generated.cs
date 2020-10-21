@@ -56,7 +56,7 @@ namespace Umbraco.Web.PublishedModels
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "8.8.0")]
 		[ImplementPropertyType("content")]
-		public global::Umbraco.Core.Models.Blocks.BlockListModel Content => this.Value<global::Umbraco.Core.Models.Blocks.BlockListModel>("content");
+		public global::System.Web.IHtmlString Content => this.Value<global::System.Web.IHtmlString>("content");
 
 		///<summary>
 		/// Job Title
